@@ -12,3 +12,9 @@ social:
   email: {name: "Via E-Mail", link: "" }
   github: {name: "Auf Github", link: "" }
 
+carousel:
+  - {title: Lorem 1, subtitle: "Lorem ipsum dolor sit amet.", img: "https://dummyimage.com/640x360/000/fff" }
+  - {title: Lorem 2, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/222/fff" }
+  - {title: Lorem 3, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/444/fff" }
+  - {title: Lorem 4, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/666/fff" }
+  - {title: Lorem 5, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/888/fff" }
