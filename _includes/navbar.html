@@ -1,15 +1,15 @@
 <nav class="navbar stycky-top navbar-expand-md navbar-light bg-light theme-primary-text">
-  <a href="#" class="navbar-brand">{{site.navigation.brand}}</a>
+  <a href="#" class="navbar-brand">{{site.data.main.navigation.brand}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav">
-      {% for item in site.navigation.items %}
-        <li class="nav-item">
-          <a href="{item.href}" class="nav-link">{{item.name}}</a>
-        </li>
+      {% for item in site.data.main.navigation.items %}
+      <li class="nav-item">
+        <a href="{item.href}" class="nav-link">{{item.name}}</a>
+      </li>
       {% endfor %}
     </ul>
   </div>

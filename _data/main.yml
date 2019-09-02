@@ -1,0 +1,14 @@
+navigation:
+  brand: DKP Cb
+  items:
+    - {href: "#", name: "lorem"}
+    - {href: "#", name: "ipsum"}
+    - {href: "#", name: "dolor"}
+    - {href: "#", name: "sit amet"}
+
+social:
+  facebook: {name: "Auf Facebook", link: "https://www.facebook.com/dkpcottbus" }
+  twitter: {name: "Auf Twitter", link: "https://twitter.com/dkp_cottbus" }
+  email: {name: "Via E-Mail", link: "" }
+  github: {name: "Auf Github", link: "" }
+
