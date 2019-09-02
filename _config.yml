@@ -1,0 +1,54 @@
+# Site settings
+title: DKP Cottbus
+baseurl: "" 
+url: # the base hostname & protocol for your site
+
+navigation:
+  brand: DKP Cb
+  items:
+    - {href: "#", name: "lorem"}
+    - {href: "#", name: "ipsum"}
+    - {href: "#", name: "dolor"}
+    - {href: "#", name: "sit amet"}
+
+social:
+  facebook: {name: "Auf Facebook", link: "https://www.facebook.com/dkpcottbus" }
+  twitter: {name: "Auf Twitter", link: "https://twitter.com/dkp_cottbus" }
+  email: {name: "Via E-Mail", link: "" }
+  github: {name: "Auf Github", link: "" }
+
+
+# SEO
+description: 
+author: Fabian Große
+facebook:
+  publisher: 
+logo: 
+lang: de_DE
+
+# Analytics
+google-analytics: 
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pages Path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
+
+include:
+  - _pages
+
+# Exclude from processing.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - _posts/_template.md
