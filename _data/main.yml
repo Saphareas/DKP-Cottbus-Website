@@ -1,10 +1,14 @@
 navigation:
-  brand: DKP Cb
   items:
     - {href: "#", name: "lorem"}
     - {href: "#", name: "ipsum"}
     - {href: "#", name: "dolor"}
     - {href: "#", name: "sit amet"}
+
+motd:
+  quote: "Ducimus est natus nulla voluptas labore voluptatibus. Voluptatem nostrum laboriosam fugit distinctio ea. Est non ipsa ipsum aut. Laudantium facilis harum nostrum ut nihil. Quia modi aut omnis. "
+  author: Latin saying
+
 
 social:
   facebook: {name: "Auf Facebook", link: "https://www.facebook.com/dkpcottbus" }
