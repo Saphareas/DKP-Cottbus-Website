@@ -5,9 +5,10 @@ title: Start
 
 <style>
   #front-header {
-    background: #ddd;
+    margin-top: 56px;
   }
   #front-header .row {
+    min-height: 300px;
     margin: 0 15px;
     background-image: url("/img/front-header-image.jpg");
     background-size: cover;
@@ -24,21 +25,69 @@ title: Start
     top: 15px;
     padding: 15px;
   }
+  #motd i {
+    margin-top: 15px;
+  }
   #motd p {
     padding: 0 30px;
   }
+  #motd footer {
+    text-align: right;
+  }
+  #posts .card .card-text {
+    padding-bottom: 2rem
+  }
+  #posts .card .btn {
+    position: absolute;
+    bottom: 15px;
+  }
 </style>
 
-<section id="front-header">
+<section id="front-header" class="theme-dark">
   <div class="row">
     <div class="col-md-8">
       <div class="overlay theme-primary">
         <h1>Kommunisten in <br> Cottbus & Umland</h1>
       </div>
     </div>
-    <div id="motd" class="col-md-4 theme-primary">
-      <p><i class="fas fa-bullhorn fa-7x"></i> {{site.data.main.motd.quote}}</p>
-      <p>{{site.data.main.motd.author}}</p>
+    <blockquote id="motd" class="blockquote theme-primary col-4">
+      <p class="mb-0"><i class="fas fa-bullhorn fa-7x"></i> {{site.data.main.motd.quote}}</p>
+      <footer class="blockquote-footer text-light">{{site.data.main.motd.author}}</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section id="posts">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
+        <article class="card theme-primary-text">
+          <div class="card-body">
+            <p class="card-text">
+              <i class="far fa-calendar-alt fa-4x"></i>
+
+            </p>
+            <h4 class="card-title"><b>Mitgliederversammlung der DKP Cottbus</b></h4>
+          </div>
+        </article>
+      </div>
+      {% for i in (1..5) %}
+      {% for post in site.posts limit:11 %}
+      <div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
+        <article class="card">
+          <a href="{{ post.url | relative_url }}">
+            <img class="rounded card-img-top" src="{{ site.baseurl }}/img/blog/{{ post.image }}" alt="{{ post.title }}">
+          </a>
+          <div class="card-body">
+            <span class="text-muted">Vom {{ post.date | date: "%d. %b. %Y" }}</span>
+            <h4 class="card-title"><b>{{ post.title | escape }}</b></h4>
+            <p class="card-text">{{ post.content | strip_html | truncate: 128 }}</p>
+            <a href="{{ post.url | relative_url }}" class="btn btn-xs theme-primary">Mehr...</a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+      {% endfor %}
     </div>
   </div>
 </section>
