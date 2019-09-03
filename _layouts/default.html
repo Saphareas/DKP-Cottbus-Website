@@ -5,9 +5,26 @@
 <html lang="de">
 {% include head.html %}
 
+<style>
+  html, body {
+    height: 100%;
+  }
+  #wrap {
+    min-height: 100%;
+  }
+  #main {
+    overflow: auto;
+    padding-bottom: 80px;
+  }
+</style>
+
 <body class="bg-light">
-  {% include navbar.html %}
-  {{content}}
+  <div id="wrap">
+    <div id="main">
+      {% include navbar.html %}
+      {{content}}
+    </div>
+  </div>
   {% include footer.html %}
   {% include scripts.html %}
 </body>
