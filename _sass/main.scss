@@ -6,7 +6,7 @@ html, body {
 }
 #main {
     overflow: auto;
-    padding-bottom: 80px;
+    padding: 80px 0;
 }
 
 #front-header {
@@ -14,7 +14,7 @@ html, body {
 
     .row {
         min-height: 300px;
-        margin: 0 15px;
+        margin: 0;
         background-image: url("/img/front-header-image.jpg");
         background-size: cover;
         background-position-y: 25%;
