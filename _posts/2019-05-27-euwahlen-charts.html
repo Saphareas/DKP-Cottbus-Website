@@ -1,0 +1,315 @@
+---
+layout: post
+title: EU Wahl 2019 Ergebnisse
+image: euvote2k19.jpg
+---
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="/js/EU19_TabelleTerritorialkreis.js"></script>
+<style>
+  .chart-wrapper {
+    height: 400px;
+
+  }
+  @media only screen and (orientation: portrait) {
+    .chart-wrapper {
+      height: 50vh;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .chart-wrapper {
+      height: 80vh;
+    }
+  }
+</style>
+
+<h2 style="text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Stimmen für die DKP bei der Wahl zum EU-Parlament in Brandenburg</h2>
+
+<div class="container">
+  <div class="row">
+    <!-- Chart 1: Absolute Zahlen-->
+    <div class="col-md-6 chart-wrapper">
+      <canvas id="votes_abs"></canvas>
+      <script>
+        var abs = document.getElementById("votes_abs").getContext("2d");
+        var chartAbs = new Chart(abs, {
+          type: "bar",
+          data: {
+            labels: kreise,
+            datasets: [{
+              label: '2014',
+              data: zahlen2014abs,
+              backgroundColor: "rgba(255,0,128,.5)",
+              borderColor: "rgba(255,0,128,1)",
+              borderWidth: 2
+            },
+            {
+              label: "2019",
+              data: zahlen2019abs,
+              backgroundColor: "rgba(255,0,0,.5)",
+              borderColor: "rgba(255,0,0,1)",
+              borderWidth: 2
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              fontSize: 20,
+              text: ["Absolute Stimmen für die DKP in 2014 und 2019", "Aufgeschlüsselt nach Landkreis"]
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+    </div>
+
+    <!-- Chart 3: Absolutes Delta -->
+    <div class="col-md-6 chart-wrapper">
+      <canvas id="delta_abs"></canvas>
+      <script>
+        var absDelta = document.getElementById("delta_abs").getContext("2d");
+        var chartAbsDelta = new Chart(absDelta, {
+          type: "bar",
+          data: {
+            labels: kreise,
+            datasets: [{
+              label: 'Unterschied der Stimmen zu 2014',
+              data: deltaAbs,
+              backgroundColor: function(context) {
+                let index = context.dataIndex;
+                let value = context.dataset.data[index];
+                return value < 0 ? "red" : value > 0 ? "green" : "grey"
+              }
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            title: {
+              display: true,
+              fontSize: 20,
+              text: ["Veränderung der Stimmen (Delta) im Vergleich zu 2014", "Aufgeschlüsselt nach Landkreis"]
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <!-- Chart 2: Relative Zahlen-->
+    <div class="col-md-6 chart-wrapper">
+        <canvas id="votes_rel"></canvas>
+        <script>
+          var rel = document.getElementById("votes_rel").getContext("2d");
+          var chartRel = new Chart(rel, {
+            type: "bar",
+            data: {
+              labels: kreise,
+              datasets: [{
+                label: '2014',
+                data: zahlen2014rel,
+                backgroundColor: "rgba(255,0,128,.5)",
+                borderColor: "rgba(255,0,128,1)",
+                borderWidth: 2
+              },
+              {
+                label: "2019",
+                data: zahlen2019rel,
+                backgroundColor: "rgba(255,0,0,.5)",
+                borderColor: "rgba(255,0,0,1)",
+                borderWidth: 2
+              }]
+            },
+            options: {
+              maintainAspectRatio: false,
+              title: {
+                display: true,
+                fontSize: 20,
+                text: ["Prozent der Stimmen für die DKP in 2014 und 2019", "Aufgeschlüsselt nach Landkreis"]
+              },
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+        </script>
+    </div>
+
+    <!-- Chart 4: Relatives Delta -->
+    <div class="col-md-6 chart-wrapper">
+      <canvas id="delta_rel"></canvas>
+      <script>
+        var relDelta = document.getElementById("delta_rel").getContext("2d");
+        var chartRelDelta = new Chart(relDelta, {
+          type: "bar",
+          data: {
+            labels: kreise,
+            datasets: [{
+              label: 'Unterschied der Stimmen zu 2014',
+              data: deltaRel,
+              backgroundColor: function(context) {
+                let index = context.dataIndex;
+                let value = context.dataset.data[index];
+                return value < 0 ? "red" : value > 0 ? "green" : "grey"
+              }
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            legend: {
+              display: false
+            },
+            title: {
+              display: true,
+              fontSize: 20,
+              text: ["Veränderung der Prozente (Delta) im Vergleich zu 2014", "Aufgeschlüsselt nach Landkreis"]
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <!-- Chart 5: Gesamt -->
+    <div class="col-md-6 chart-wrapper">
+      <canvas id="gesamt"></canvas>
+      <script>
+        var gesamt = document.getElementById("gesamt").getContext("2d");
+        var chartGesamt = new Chart(gesamt, {
+          type: "bar",
+          data: {
+            labels: ["2014", "2019"],
+            datasets: [{
+              label: 'Absolut',
+              data: [gesamtData.abs14, gesamtData.abs19],
+              backgroundColor: "rgba(255,0,128,.5)",
+              borderColor: "rgba(255,0,128,1)",
+              borderWidth: 2,
+              yAxisID: "left-y-axis"
+            },
+            {
+              label: 'Prozente',
+              data: [gesamtData.rel14, gesamtData.rel19],
+              backgroundColor: "rgba(255,0,0,.5)",
+              borderColor: "rgba(255,0,0,1)",
+              borderWidth: 2,
+              yAxisID: "right-y-axis"
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              fontSize: 20,
+              text: "Gesamt Brandenburg"
+            },
+            scales: {
+              yAxes: [
+                {
+                  id: "left-y-axis",
+                  type: 'linear',
+                  position: "left",
+                  ticks: {beginAtZero: true}
+                },
+                {
+                  id: "right-y-axis",
+                  type: 'linear',
+                  position: "right",
+                  ticks: {beginAtZero: true}
+                }
+              ]
+            }
+          }
+        });
+      </script>
+    </div>
+
+    <!-- Chart 6: Gesamt Delta -->
+    <div class="col-md-6 chart-wrapper">
+      <canvas id="gesamtDelta"></canvas>
+      <script>
+        var gesamtDelta = document.getElementById("gesamtDelta").getContext("2d");
+        var chartGesamtDelta = new Chart(gesamtDelta, {
+          type: "bar",
+          data: {
+            datasets: [{
+              label: 'Absolut',
+              data: [gesamtData.absDelta],
+              backgroundColor: "rgba(255,0,128,.5)",
+              borderColor: "rgba(255,0,128,1)",
+              borderWidth: 2,
+              yAxisID: "left-y-axis"
+            },
+            {
+              label: 'Prozente',
+              data: [gesamtData.relDelta],
+              backgroundColor: "rgba(255,0,0,.5)",
+              borderColor: "rgba(255,0,0,1)",
+              borderWidth: 2,
+              yAxisID: "right-y-axis"
+            }]
+          },
+          options: {
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              fontSize: 20,
+              text: "Delta Brandenburg"
+            },
+            scales: {
+              yAxes: [
+                {
+                  id: "left-y-axis",
+                  type: 'linear',
+                  position: "left",
+                  ticks: {beginAtZero: true}
+                },
+                {
+                  id: "right-y-axis",
+                  type: 'linear',
+                  position: "right",
+                  ticks: {beginAtZero: true}
+                }
+              ]
+            }
+          }
+        });
+      </script>
+    </div>
+  </div>
+</div>
+
+<p style="text-align:right; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Quelle: Landeswahlleiter Land Brandenburg</p>
