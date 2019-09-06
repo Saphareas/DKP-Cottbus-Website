@@ -1,9 +1,9 @@
 navigation:
   items:
-    - {href: "#", name: "lorem"}
-    - {href: "#", name: "ipsum"}
-    - {href: "#", name: "dolor"}
-    - {href: "#", name: "sit amet"}
+    - {href: "/", name: "Start"}
+    - {href: "/archiv", name: "Archiv"}
+    - {href: "/kontakt", name: "Kontakt"}
+    - {href: "https://dkp.de", name: "Bundesverband"}
 
 motd:
   quote: "Die Philosophen haben die Welt nur verschieden interpretiert, es kömmt aber darauf an, sie zu verändern. "
