@@ -3,56 +3,12 @@ layout: default
 title: Start
 ---
 
-<section id="front-header">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="overlay theme-primary">
-        <h1>Kommunisten in <br> Cottbus & Umland</h1>
-      </div>
-    </div>
-    <blockquote id="motd" class="blockquote theme-primary col-4">
-      <p class="mb-0"><i class="fas fa-bullhorn fa-7x"></i> {{ site.data.main.motd.quote }}</p>
-      <footer class="blockquote-footer text-light">{{ site.data.main.motd.author }}</footer>
-    </blockquote>
-  </div>
-</section>
-
+{% include front/header.html %}
 <section id="posts">
   <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
-        <article class="card theme-primary-text">
-          <div class="card-body">
-            {% assign calendar = site.data.main.calendar | sort: "datetime" %}
-            {% for date in calendar %}
-            <div class="card-text" future-date="{{ date.datetime | date:'%Y%m%d' }}">
-              <i class="far fa-calendar-alt fa-4x"></i>
-              <span>{{ date.datetime | date:"%A, %e. %b. %Y %H:%M Uhr" }}</span>
-              <h4><b>{{ date.title }}</b></h4>
-            </div>
-            {% endfor %}
-          </div>
-        </article>
-      </div>
-      {% for post in site.posts limit:11 %}
-      <div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
-        <article class="card">
-          <a href="{{ post.url | relative_url }}">
-            <img class="rounded card-img-top" src="/img/{{ post.image }}" alt="{{ post.title }}">
-          </a>
-          <div class="card-body">
-            <span class="text-muted">Vom {{ post.date | date: "%d. %b. %Y" }}</span>
-            <h4 class="card-title"><b>{{ post.title | escape }}</b></h4>
-            {% if post.blurb %}
-            <p class="card-text">{{ post.blurb | strip_html }}</p>
-            {% else %}
-            <p class="card-text">{{ post.content | strip_html | truncate:280 }}</p>
-            {% endif %}
-            <a href="{{ post.url | relative_url }}" class="btn btn-xs theme-primary">Mehr...</a>
-          </div>
-        </article>
-      </div>
-      {% endfor %}
+      {% include front/calendar.html %}
+      {% include front/posts.html %}
     </div>
   </div>
 </section>

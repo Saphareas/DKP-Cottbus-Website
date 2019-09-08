@@ -1,0 +1,14 @@
+<div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
+  <article class="card theme-primary-text">
+    <div class="card-body">
+      {% assign calendar = site.data.main.calendar | sort: "datetime" %}
+      {% for date in calendar %}
+      <div class="card-text" future-date="{{ date.datetime | date:'%Y%m%d' }}">
+        <i class="far fa-calendar-alt fa-4x"></i>
+        <span>{{ date.datetime | date:"%A, %e. %b. %Y %H:%M Uhr" }}</span>
+        <h4><b>{{ date.title }}</b></h4>
+      </div>
+      {% endfor %}
+    </div>
+  </article>
+</div>
