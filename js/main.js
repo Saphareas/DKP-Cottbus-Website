@@ -1,7 +1,34 @@
+/******* Cards drop shadow on mouseover *******/
 $(document).ready(function() {
     $( ".card" ).hover(function() {
         $(this).addClass('shadow').css('cursor', 'pointer');
     }, function() {
         $(this).removeClass('shadow');
     });
+});
+
+/******* Hide past dates in calendar *******/
+function getCompareDate() {
+    var d = new Date(),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('');
+}
+$('[future-date]').each(function() {
+    if($(this).attr('future-date') < getCompareDate()) $(this).hide();
+});
+
+var firstfuturedate = $("[first-future-date]").sort(sortbydate);
+function sortbydate(a, b) {
+    return ($(b).attr('first-future-date')) < ($(a).attr('first-future-date')) ? 1 : -1;
+}
+$(firstfuturedate).each(function() {
+    $('[first-future-date]').hide();
+    if($(this).attr('first-future-date') > getCompareDate()) {
+        $(this).show();
+        return false;
+    }
 });
