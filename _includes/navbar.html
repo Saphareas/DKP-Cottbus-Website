@@ -6,10 +6,21 @@
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
     <ul class="navbar-nav">
-      {% for item in site.data.main.navigation.items %}
-      <li class="nav-item">
-        <a href="{{item.href}}" class="nav-link">{{item.name}}</a>
+      {% for item in site.data.main.navigation %}
+      {% if item.subitems %}
+      <li class="nav-item dropdown">
+        <a href="{{ item.url | default: '#' }}" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown">{{item.title}}</a>
+        <div class="dropdown-menu">
+          {% for sub in item.subitems %}
+          <a href="{{ sub.url }}" class="dropdown-item">{{ sub.title }}</a>
+          {% endfor %}
+        </div>
       </li>
+      {% else %}
+      <li class="nav-item">
+        <a href="{{ item.url }}" class="nav-link">{{item.title}}</a>
+      </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>

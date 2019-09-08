@@ -1,9 +1,18 @@
 navigation:
-  items:
-    - {href: "/", name: "Start"}
-    - {href: "/archiv", name: "Archiv"}
-    - {href: "/kontakt", name: "Kontakt"}
-    - {href: "https://dkp.de", name: "Bundesverband"}
+  - title: "Start"
+    url: "/"
+  - title: "Archiv"
+    subitems:
+      - title: 2019
+        url: "/2019"
+  - title: "Kontakt"
+    url: "/kontakt"
+  - title: "Weitere Seiten"
+    subitems:
+      - title: "Landesverband"
+        url: "https://dkpbrandenburg.de"
+      - title: "Bundesverband"
+        url: "https://dkp.de"
 
 motd:
   quote: "Die Philosophen haben die Welt nur verschieden interpretiert, es kömmt aber darauf an, sie zu verändern. "
