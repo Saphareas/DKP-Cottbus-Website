@@ -1,0 +1,19 @@
+{% for post in site.posts limit:11 %}
+<div class="col-lg-4 col-sm-6 mt-4 mb-4 d-flex align-items-stretch">
+  <article class="card">
+    <a href="{{ post.url | relative_url }}">
+      <img class="rounded card-img-top" src="/img/{{ post.image }}" alt="{{ post.title }}">
+    </a>
+    <div class="card-body">
+      <span class="text-muted">Vom {{ post.date | date: "%d. %b. %Y" }}</span>
+      <h4 class="card-title"><b>{{ post.title | escape }}</b></h4>
+      {% if post.blurb %}
+      <p class="card-text">{{ post.blurb | strip_html }}</p>
+      {% else %}
+      <p class="card-text">{{ post.content | strip_html | truncate:140 }}</p>
+      {% endif %}
+      <a href="{{ post.url | relative_url }}" class="btn btn-xs theme-primary">Mehr...</a>
+    </div>
+  </article>
+</div>
+{% endfor %}

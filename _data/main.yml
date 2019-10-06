@@ -1,0 +1,37 @@
+navigation:
+  - title: "Start"
+    url: "/"
+  - title: "Archiv"
+    subitems:
+      - title: 2019
+        url: "/2019"
+  - title: "Kontakt"
+    url: "/kontakt"
+  - title: "Weitere Seiten"
+    subitems:
+      - title: "Landesverband"
+        url: "https://dkpbrandenburg.de"
+      - title: "Bundesverband"
+        url: "https://dkp.de"
+
+motd:
+  quote: "Die Philosophen haben die Welt nur verschieden interpretiert, es kommt aber darauf an, sie zu verändern. "
+  author: Karl Marx
+
+social:
+  facebook: {name: "Auf Facebook", link: "https://www.facebook.com/dkpcottbus" }
+  twitter: {name: "Auf Twitter", link: "https://twitter.com/dkp_cottbus" }
+  email: {name: "Via E-Mail", link: "" }
+  github: {name: "Auf Github", link: "" }
+
+carousel:
+  - {title: Lorem 1, subtitle: "Lorem ipsum dolor sit amet.", img: "https://dummyimage.com/640x360/000/fff" }
+  - {title: Lorem 2, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/222/fff" }
+  - {title: Lorem 3, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/444/fff" }
+  - {title: Lorem 4, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/666/fff" }
+  - {title: Lorem 5, subtitle: Lorem ipsum dolor sit amet., img: "https://dummyimage.com/640x360/888/fff" }
+
+calendar:
+  - {title: Mitgliederversammlung der DKP Cottbus, datetime: "27-09-2019T10:00", details: ""}
+  - {title: Wir und die Russen! mit Egon Krenz, datetime: "07-09-2019T10:00", details: ""}
+

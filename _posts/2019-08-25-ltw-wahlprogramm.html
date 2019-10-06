@@ -1,0 +1,104 @@
+---
+layout: post
+title: Programm für die Landtagswahlen 2019
+image: ltwprogram2k19.png
+---
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<style>
+
+</style>
+
+<div class="ltw">
+<div class="w3-row">
+  <div class="row">
+    <div class="w3-red speech">
+      <h1><b>1. Frieden mit Russland!</b> Weg mit den Sanktionen!</h1>
+      <h3><b>2. Die Reichen sollen zahlen</b> für Investitionen in Gesundheit, Wohnen, Bildung und Soziales!</h3>
+      <h3><b>3. NEIN zu Krankenhausschließungen!</b> Öffentliche Daseinsfürsorge und öffentlicher Raum in öffentliche Hand - unter demokratische Vokskontrolle!</h3>
+    </div>
+    <img src="{{site.baseurl}}/img/speech.svg" class="arrow">
+  </div>
+  <div class="row ipsum"">
+    <img src="{{site.baseurl}}/img/gisela.jpg" alt="Gisela Vierrath" class="w3-quarter w3-circle">
+    <div class="w3-twothird w3-text-red">
+      <h3>Friedenskämpfer in die Parlamente!</h3>
+      <h1>Gisela Vierrath</h1>
+      <p>
+        67 Jahre | Rentnerin | wohnhaft in Cottbus-Sandow<br>
+        Direktkandidatin Wahlkreis Cottbus Nord, Mitte und<br>
+        Sandow für die Landtagswahlen 2019
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-row">
+  <div class="section center container">
+    <h3 class="text-red">Wahlkreis 43: Wählt Kommunisten!</h3>
+
+    <span class="fa-stack subtlecircle" style="font-size:100px; background:rgba(255,166,0,0.1)">
+      <i class="fa fa-circle fa-stack-2x w3-text-white"></i>
+      <span class="fa-stack-1x w3-text-red">&#9773;</span>
+    </span>
+
+    <h1 class="w3-text-red">9 Forderungen der Deutschen Kommunistischen Partei für Brandenburg <br> gegen Krieg, Armut und Demütigung</h1>
+
+    <p>30 Jahre nach dem Anschluss der Deutschen Demokratischen Republik an die BRD ist nüchtern zu bilanzieren:</p>
+
+    <div class="w3-container" style="display: flex; flex-wrap: wrap; justify-content: center">
+      {% for r in site.data.ltw2019.gruende %}
+      <div class="w3-card w3-third w3-padding-small w3-margin-bottom w3-margin-left w3-margin-right w3-white">
+        <p>{{r}}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p>Angesichts dieser Bilanz beziehen wir Brandenburger Kommunistinnen und Kommunisten folgende Positionen:</p>
+  </div>
+</div>
+
+<div class="w3-row">
+  {% for f in site.data.ltw2019.forderungen %}
+    <div id="{% increment id %}" class="section w3-half ford" style="background-color: rgba(255,0,0,.{{id}}); padding-top: 160px">
+      <div class="subtlecircle sectiondivider faicon w3-text-red">
+        <span class="fa-stack">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <strong class="fa-stack-1x">{{ id }}</strong>
+        </span>
+      </div>
+      <div class="container">
+        <h3>{{ f.short }}</h3>
+        <p>{{ f.body }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="w3-row" style="margin-top: 50px">
+  <div class="row">
+    <div class="speech w3-red">
+      <h3>
+        „Die Wirtschaft der DDR wurde nach 1990 platt gemacht, weil sie angeblich pleite gewesen sei. Das Ergebnis ist, dass bis heute viele junge Menschen die Region verlassen. Das ist moderne Vertreibung. Eine machbare Lösung: Schaffung von Arbeitsplätzen im Öffentlichen Dienst – gegenfinanziert durch Abrüstung und Einführung einer Millionärssteuer.“
+      </h3>
+    </div>
+    <img src="{{site.baseurl}}/img/speech.svg" class="arrow">
+  </div>
+  <div class="row ipsum">
+    <img src="{{site.baseurl}}/img/gisela.jpg" alt="Gisela Vierrath" class="w3-quarter w3-circle">
+    <div class="w3-half w3-text-red">
+      <h2>Am 1. September DKP wählen, Gisela Vierrath wählen!</h2>
+      <p>
+        Als Cottbuserin setze ich mich im Landtag besonders ein für:
+        <ul>
+          <li>mehr Gelder vom Bund für den Aufbau der nach 1990 zerstörten DDR-Architektur und -Wirtschaft in Brandenburg</li>
+          <li>die Revitalisierung der wendischen Sprache</li>
+          <li>die sofortige Rentenanpassung Ost</li>
+          <li>den Ausbau Erneuerbarer Energien</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
+</div>

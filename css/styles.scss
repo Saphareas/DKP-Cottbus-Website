@@ -1,0 +1,29 @@
+---
+---
+
+$theme-primary: #e00d0d;
+$theme-dark: #5f5f5f;
+
+.theme-primary {
+    color: white;
+    background-color: $theme-primary;
+}
+.theme-primary-text {
+    color: $theme-primary;
+}
+
+.theme-dark {
+    color: white;
+    background-color: $theme-dark;
+}
+.theme-dark-text {
+    color: $theme-dark;
+}
+
+/***** Navbar Overrides *****/
+.navbar.theme-primary-text .navbar-brand,
+.navbar.theme-primary-text .navbar-nav .nav-link {
+    color: $theme-primary;
+}
+
+@import "main", "ltw";

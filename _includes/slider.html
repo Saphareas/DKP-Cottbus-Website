@@ -1,0 +1,64 @@
+<style>
+.carousel-caption {
+  text-align: center;
+  width: 150px;
+  top: 0;
+  transform: translateX(100px);
+  padding: 10px;
+  height: 100%;
+  left: auto; /*Added*/
+}
+.wh-dyn {height: 100%}
+@media (max-width: 767px) {
+  .wh-dyn {width: 100%}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .carousel-inner img {
+    transform: translateX(-25px);
+  }
+  .carousel-control-next,
+  .carousel-indicators {
+    right: 150px;
+  }
+}
+@media (min-width: 992px) {
+  .carousel-caption {
+    width: 200px;
+  }
+  .carousel-control-next,
+  .carousel-indicators {
+    right: 200px;
+  }
+}
+</style>
+
+<section class="theme-primary">
+  <div class="container col-lg-7">
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade h-100" data-ride="carousel">
+      <ol class="carousel-indicators">
+        {% for item in site.data.main.carousel %}
+        <li data-target="#carouselExampleCaptions" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+        {% endfor %}
+      </ol>
+      <div class="carousel-inner" style="max-height: 300px">
+        {% for item in site.data.main.carousel %}
+        <div class="carousel-item{% if forloop.first %} active{% endif %}">
+          <img src="{{item.img}}" class="d-block wh-dyn" alt="{{item.img-alt}}">
+          <div class="carousel-caption d-none d-md-block bg-light theme-primary-text{% if forloop.first %} active{% endif %}">
+            <h5>{{item.title}}</h5>
+            <p>{{item.subtitle}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Vorheriges</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Nächstes</span>
+      </a>
+    </div>
+  </div>
+</section>

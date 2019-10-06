@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+}
+#wrap {
+    min-height: 100%;
+}
+#main {
+    overflow: auto;
+    padding-bottom: 80px;
+    padding-top: 56px;
+}
+
+#front-header {
+    .row {
+        min-height: 300px;
+        margin: 0;
+        background-image: url("/img/front-header-image.jpg");
+        background-size: cover;
+        background-position-y: 25%;
+    }
+    .header-image {
+        padding-left: 0;
+        width: 100%;
+        height: 0;
+        padding-top: 300px;
+    }
+    .overlay {
+        position: absolute;
+        top: 15px;
+        padding: 15px;
+    }
+    #motd {
+        margin-bottom: 0;
+        i {
+            margin-top: 15px;
+        }
+        p {
+            padding: 0 30px;
+        }
+        footer {
+            text-align: right;
+        }
+    }
+}
+
+#posts .card {
+    .card-text {
+        padding-bottom: 2rem;
+    }
+    .btn {
+        position: absolute;
+        bottom: 15px;
+    }
+}
+
+#footer {
+    position: relative;
+    margin-top: -80px;
+    height: 80px;
+    clear: both;
+}
